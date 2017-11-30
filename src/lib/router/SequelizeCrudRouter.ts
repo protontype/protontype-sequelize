@@ -1,11 +1,11 @@
-import { BaseModel } from './BaseModel';
+import { SequelizeBaseModel } from '../database/SequelizeBaseModel';
 import { RouterFunctionParams, ExpressRouter, ProtonApplication, Method } from 'protontype';
 import * as express from 'express';
-import { SequelizeDB } from './SequelizeDBConnector';
+import { SequelizeDB } from '../database/SequelizeDBConnector';
 /**
  * Created by Humberto Machado on 14/08/2016.
  */
-export abstract class BaseCrudRouter extends ExpressRouter {
+export abstract class SequelizeCrudRouter extends ExpressRouter {
     private useAuth: UseAuthOptions;
     private crudModel: {
         new(...args: any[]);

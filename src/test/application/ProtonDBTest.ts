@@ -1,10 +1,10 @@
-import { SequelizeDBConnector } from '../../lib/SequelizeDBConnector';
+import { SequelizeDBConnector } from '../../lib/database/SequelizeDBConnector';
 import { ModelMock3, ModelMock4, ModelMock1, ModelMock2, Mock } from './../utils/ModelMock';
 import { assert } from 'chai';
 import { JsonLoader } from 'jsontyped';
 import { suite, test, timeout } from 'mocha-typescript';
 import { GlobalConfig } from 'protontype';
-import { ModelInstance } from '../../lib/BaseModel';
+import { ModelInstance } from '../../lib/database/SequelizeBaseModel';
 
 @suite('Testes para ProtonDB')
 class ProtonDBtest {

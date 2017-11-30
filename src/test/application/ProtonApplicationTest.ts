@@ -12,7 +12,7 @@ import * as express from 'express';
 import { JsonLoader } from 'jsontyped';
 import { suite, test } from 'mocha-typescript';
 import * as request from 'supertest';
-import { SequelizeDB, SequelizeDBConnector } from '../../lib/SequelizeDBConnector';
+import { SequelizeDB, SequelizeDBConnector } from '../../lib/database/SequelizeDBConnector';
 
 @suite('ProtonApplicationTest')
 class ProtonApplicationTest {

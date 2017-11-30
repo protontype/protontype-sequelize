@@ -1,12 +1,12 @@
 import { SequelizeDBConnector } from './SequelizeDBConnector';
-import { AssociationsConfig, AssociationType } from './ProtonModelConfig';
+import { AssociationsConfig, AssociationType } from './SequelizeModelConfig';
 import * as Sequelize from 'sequelize';
 
 /**
  * @author Humberto Machado
  */
 
-export abstract class BaseModel<ModelAttrinutes extends SequelizeBaseModelAttr> {
+export abstract class SequelizeBaseModel<ModelAttrinutes extends SequelizeSequelizeBaseModelAttr> {
     //Sequelize Model native instance. @see http://docs.sequelizejs.com/en/latest/docs/models-usage/
     protected model: Sequelize.Model<ModelInstance<ModelAttrinutes>, ModelAttrinutes>;
     protected name: string;
@@ -18,7 +18,7 @@ export abstract class BaseModel<ModelAttrinutes extends SequelizeBaseModelAttr> 
         return this.name;
     }
 
-    public defineModel(sequelize: Sequelize.Sequelize): BaseModel<ModelAttrinutes> {
+    public defineModel(sequelize: Sequelize.Sequelize): SequelizeBaseModel<ModelAttrinutes> {
         this.model = sequelize.define<ModelInstance<ModelAttrinutes>, ModelAttrinutes>(this.getModelName(), this.definition, {});
         return this;
     }
@@ -76,12 +76,12 @@ export abstract class BaseModel<ModelAttrinutes extends SequelizeBaseModelAttr> 
 
 export var DataTypes: Sequelize.DataTypes = Sequelize;
 
-export interface SequelizeBaseModelAttr {
+export interface SequelizeSequelizeBaseModelAttr {
     id?: number;
     created_at?: Date;
     updated_at?: Date;
 }
 
-export interface ModelInstance<T extends SequelizeBaseModelAttr> extends Sequelize.Instance<T> {
+export interface ModelInstance<T extends SequelizeSequelizeBaseModelAttr> extends Sequelize.Instance<T> {
 
 }

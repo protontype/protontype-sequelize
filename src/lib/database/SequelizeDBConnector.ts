@@ -1,12 +1,12 @@
 import { DBConnector, ProtonDB } from 'protontype'
 import * as Sequelize from 'sequelize';
 import { Dictionary } from 'typescript-collections';
-import { BaseModel } from './BaseModel';
-import { ProtonModelConfig } from './ProtonModelConfig';
+import { SequelizeBaseModel } from './SequelizeBaseModel';
+import { SequelizeModelConfig } from './SequelizeModelConfig';
 
 export class SequelizeDBConnector implements DBConnector<DatabaseConfig, SequelizeDBConnector> {
     private sequelize: Sequelize.Sequelize = null;
-    private models: Dictionary<string, BaseModel<any>> = new Dictionary<string, BaseModel<any>>();
+    private models: Dictionary<string, SequelizeBaseModel<any>> = new Dictionary<string, SequelizeBaseModel<any>>();
 
     async createConnection(config?: DatabaseConfig): Promise<SequelizeDBConnector> {
         if (!config) {
@@ -24,13 +24,13 @@ export class SequelizeDBConnector implements DBConnector<DatabaseConfig, Sequeli
     }
     
 
-    public loadModels(modelsList?: BaseModel<any>[]): this {
+    public loadModels(modelsList?: SequelizeBaseModel<any>[]): this {
         if (!modelsList) {
-            modelsList = ProtonModelConfig.modelsList;
+            modelsList = SequelizeModelConfig.modelsList;
         }
 
         if (modelsList && this.sequelize) {
-            modelsList.forEach((model: BaseModel<any>) => {
+            modelsList.forEach((model: SequelizeBaseModel<any>) => {
                 if (!this.getModel(model.getModelName())) {
                     this.addModel(model.getModelName(), model.defineModel(this.sequelize));
                     model.setProtonDB(this);
@@ -38,7 +38,7 @@ export class SequelizeDBConnector implements DBConnector<DatabaseConfig, Sequeli
                 }
             });
 
-            modelsList.forEach((model: BaseModel<any>) => {
+            modelsList.forEach((model: SequelizeBaseModel<any>) => {
                 model.configureAssociations();
                 model.configure();
             });
@@ -51,11 +51,11 @@ export class SequelizeDBConnector implements DBConnector<DatabaseConfig, Sequeli
         return this.sequelize;
     }
 
-    public getModels(): Dictionary<string, BaseModel<any>> {
+    public getModels(): Dictionary<string, SequelizeBaseModel<any>> {
         return this.models;
     }
 
-    public getModel(model: string | { new(...args: any[]) }): BaseModel<any> {
+    public getModel(model: string | { new(...args: any[]) }): SequelizeBaseModel<any> {
         if (typeof (model) == typeof (" ")) {
             return this.models.getValue(<string>model);
         } else {
@@ -65,7 +65,7 @@ export class SequelizeDBConnector implements DBConnector<DatabaseConfig, Sequeli
     }
 
 
-    public addModel(name: string, model: BaseModel<any>): void {
+    public addModel(name: string, model: SequelizeBaseModel<any>): void {
         this.models.setValue(name, model);
     }
 }

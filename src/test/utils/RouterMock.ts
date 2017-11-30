@@ -1,7 +1,7 @@
 import { RouterFunctionParams, Method, Route, RouterClass, UseAuth, JsonContentMiddleware } from 'protontype';
 import { GlobalRouterMiddlewareMock, RouterMiddlewareMock } from './MiddlewareMock';
 import { ModelMock1, ModelMock2 } from './ModelMock';
-import { BaseCrudRouter } from '../../lib/BaseCrudRouter';
+import { SequelizeCrudRouter } from '../../lib/router/SequelizeCrudRouter';
 
 @UseAuth({
     create: false,
@@ -14,7 +14,7 @@ import { BaseCrudRouter } from '../../lib/BaseCrudRouter';
     middlewares: [new GlobalRouterMiddlewareMock(), new JsonContentMiddleware()],
     model: ModelMock1
 })
-export class RouterMock extends BaseCrudRouter {
+export class RouterMock extends SequelizeCrudRouter {
 
     @Route({
         endpoint: '/test/msg',

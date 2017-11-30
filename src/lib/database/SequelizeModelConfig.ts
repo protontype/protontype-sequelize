@@ -1,14 +1,14 @@
-import { BaseModel } from './BaseModel';
+import { SequelizeBaseModel } from './SequelizeBaseModel';
 import * as Sequelize from 'sequelize';
 
 /**
  * @author Humberto Machado
  */
-export class ProtonModelConfig {
+export class SequelizeModelConfig {
     //Injected by @Model
-    public static modelsList: BaseModel<any>[];
+    public static modelsList: SequelizeBaseModel<any>[];
 
-    public static add(model: BaseModel<any>) {
+    public static add(model: SequelizeBaseModel<any>) {
         if (!this.modelsList) {
             this.modelsList = [];
         }
@@ -25,7 +25,7 @@ export function Model(config: ModelConfig) {
     return function (constructor: Function) {
         constructor.prototype.name = config.name;
         constructor.prototype.definition = config.definition;
-        ProtonModelConfig.add(constructor.prototype);
+        SequelizeModelConfig.add(constructor.prototype);
     }
 }
 
@@ -34,7 +34,7 @@ export function Model(config: ModelConfig) {
  * 
  * Load a model
  */
-export function LoadModel(config: BaseModel<any>) {
+export function LoadModel(config: SequelizeBaseModel<any>) {
     return function (constructor: Function) {
        
     }

@@ -1,4 +1,4 @@
-import { SequelizeDBConnector } from './database/SequelizeDBConnector';
+import { SequelizeDBConnector } from './SequelizeDBConnector';
 import { AssociationsConfig } from './SequelizeModelConfig';
 import * as Sequelize from 'sequelize';
 /**
