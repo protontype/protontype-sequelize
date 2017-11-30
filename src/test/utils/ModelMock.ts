@@ -5,7 +5,7 @@ import {
     HasOne,
     Model,
 } from '../../lib/database/SequelizeModelConfig';
-import { DataTypes, SequelizeSequelizeBaseModelAttr } from '../../lib/database/SequelizeBaseModel';
+import { DataTypes, SequelizeBaseModelAttr } from '../../lib/database/SequelizeBaseModel';
 import { SequelizeBaseModel } from '../../lib/database/SequelizeBaseModel';
 /**
  * @author Humberto Machado
@@ -33,7 +33,7 @@ import { SequelizeBaseModel } from '../../lib/database/SequelizeBaseModel';
 export class ModelMock1 extends SequelizeBaseModel<Mock> {
 }
 
-export interface Mock extends SequelizeSequelizeBaseModelAttr {
+export interface Mock extends SequelizeBaseModelAttr {
     mockCol1: string;
     mockCol2: number;
 }
@@ -61,7 +61,7 @@ export interface Mock extends SequelizeSequelizeBaseModelAttr {
 export class ModelMock2 extends SequelizeBaseModel<Mock2> {
 }
 
-export interface Mock2 extends SequelizeSequelizeBaseModelAttr {
+export interface Mock2 extends SequelizeBaseModelAttr {
     mock2Col1: string;
     mock2Col2: number;
 }
@@ -87,7 +87,7 @@ export interface Mock2 extends SequelizeSequelizeBaseModelAttr {
 export class ModelMock3 extends SequelizeBaseModel<Mock3> {
 }
 
-export interface Mock3 extends SequelizeSequelizeBaseModelAttr {
+export interface Mock3 extends SequelizeBaseModelAttr {
     mock3Col1: string;
     mock3Col2: number;
 }
@@ -115,7 +115,7 @@ export interface Mock3 extends SequelizeSequelizeBaseModelAttr {
 export class ModelMock4 extends SequelizeBaseModel<Mock4> {
 }
 
-export interface Mock4 extends SequelizeSequelizeBaseModelAttr {
+export interface Mock4 extends SequelizeBaseModelAttr {
     mock4Col1: string;
     mock4Col2: number;
 }

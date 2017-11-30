@@ -3,11 +3,17 @@
   "version": "1.0.0",
   "description": "Sequelize database for Protontype",
   "main": "dist/lib/index.js",
+  "typings": "dist/lib/index.d.ts",
   "scripts": {
     "build": "tsc -w",
     "start": "npm run build",
     "test": "tsc && mocha -t 30000 dist/test/**/*.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/linck/protontype-sequelize"
+  },
+  "homepage": "https://github.com/linck/protontype-sequelize",
   "author": "Humberto Machado",
   "license": "MIT",
   "devDependencies": {

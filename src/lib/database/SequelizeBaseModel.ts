@@ -6,7 +6,7 @@ import * as Sequelize from 'sequelize';
  * @author Humberto Machado
  */
 
-export abstract class SequelizeBaseModel<ModelAttrinutes extends SequelizeSequelizeBaseModelAttr> {
+export abstract class SequelizeBaseModel<ModelAttrinutes extends SequelizeBaseModelAttr> {
     //Sequelize Model native instance. @see http://docs.sequelizejs.com/en/latest/docs/models-usage/
     protected model: Sequelize.Model<ModelInstance<ModelAttrinutes>, ModelAttrinutes>;
     protected name: string;
@@ -76,12 +76,12 @@ export abstract class SequelizeBaseModel<ModelAttrinutes extends SequelizeSequel
 
 export var DataTypes: Sequelize.DataTypes = Sequelize;
 
-export interface SequelizeSequelizeBaseModelAttr {
+export interface SequelizeBaseModelAttr {
     id?: number;
     created_at?: Date;
     updated_at?: Date;
 }
 
-export interface ModelInstance<T extends SequelizeSequelizeBaseModelAttr> extends Sequelize.Instance<T> {
+export interface ModelInstance<T extends SequelizeBaseModelAttr> extends Sequelize.Instance<T> {
 
 }

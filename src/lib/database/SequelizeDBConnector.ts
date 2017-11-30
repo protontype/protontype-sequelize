@@ -16,6 +16,7 @@ export class SequelizeDBConnector implements DBConnector<DatabaseConfig, Sequeli
             config.password, config.options
         );
         this.loadModels();
+        console.log("Models loaded: ", this.models.size());
         return new Promise<SequelizeDBConnector>((resolve, reject) => {
             this.sequelize.sync().then(() => {
                 resolve(this);
@@ -55,12 +56,12 @@ export class SequelizeDBConnector implements DBConnector<DatabaseConfig, Sequeli
         return this.models;
     }
 
-    public getModel(model: string | { new(...args: any[]) }): SequelizeBaseModel<any> {
+    public getModel<T extends SequelizeBaseModel<any>>(model: string | { new(...args: any[]) }): T {
         if (typeof (model) == typeof (" ")) {
-            return this.models.getValue(<string>model);
+            return <T>this.models.getValue(<string>model);
         } else {
             let modelClass = new (<{ new(...args: any[]) }>model)();
-            return this.models.getValue(modelClass.getModelName());
+            return <T>this.models.getValue(modelClass.getModelName());
         }
     }
 

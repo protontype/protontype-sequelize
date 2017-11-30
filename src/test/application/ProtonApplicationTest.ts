@@ -10,7 +10,7 @@ import { RouterMock } from './../utils/RouterMock';
 import { assert } from 'chai';
 import * as express from 'express';
 import { JsonLoader } from 'jsontyped';
-import { suite, test } from 'mocha-typescript';
+import { suite, test, timeout } from 'mocha-typescript';
 import * as request from 'supertest';
 import { SequelizeDB, SequelizeDBConnector } from '../../lib/database/SequelizeDBConnector';
 
@@ -28,7 +28,7 @@ class ProtonApplicationTest {
     }
 
     @test('basicTest')
-     basicTest(done: Function) {
+    basicTest(done: Function) {
         this.config = JsonLoader.loadFile<GlobalConfig>("./src/test/utils/config.json");
         this.app = new ProtonApplication(this.config)
             .withDBConnector(new SequelizeDBConnector())
