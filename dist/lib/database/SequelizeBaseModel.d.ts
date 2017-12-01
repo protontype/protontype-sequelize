@@ -4,7 +4,7 @@ import * as Sequelize from 'sequelize';
 /**
  * @author Humberto Machado
  */
-export declare abstract class SequelizeBaseModel<ModelAttrinutes extends SequelizeSequelizeBaseModelAttr> {
+export declare abstract class SequelizeBaseModel<ModelAttrinutes extends SequelizeBaseModelAttr> {
     protected model: Sequelize.Model<ModelInstance<ModelAttrinutes>, ModelAttrinutes>;
     protected name: string;
     protected definition: Sequelize.DefineAttributes;
@@ -22,10 +22,10 @@ export declare abstract class SequelizeBaseModel<ModelAttrinutes extends Sequeli
     setProtonDB(ProtonDB: SequelizeDBConnector): void;
 }
 export declare var DataTypes: Sequelize.DataTypes;
-export interface SequelizeSequelizeBaseModelAttr {
+export interface SequelizeBaseModelAttr {
     id?: number;
     created_at?: Date;
     updated_at?: Date;
 }
-export interface ModelInstance<T extends SequelizeSequelizeBaseModelAttr> extends Sequelize.Instance<T> {
+export interface ModelInstance<T extends SequelizeBaseModelAttr> extends Sequelize.Instance<T> {
 }

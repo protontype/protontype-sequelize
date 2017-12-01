@@ -9,9 +9,9 @@ export declare class SequelizeDBConnector implements DBConnector<DatabaseConfig,
     loadModels(modelsList?: SequelizeBaseModel<any>[]): this;
     getInstance(): Sequelize.Sequelize;
     getModels(): Dictionary<string, SequelizeBaseModel<any>>;
-    getModel(model: string | {
+    getModel<T extends SequelizeBaseModel<any>>(model: string | {
         new (...args: any[]);
-    }): SequelizeBaseModel<any>;
+    }): T;
     addModel(name: string, model: SequelizeBaseModel<any>): void;
 }
 export interface DatabaseConfig {

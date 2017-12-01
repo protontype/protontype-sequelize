@@ -24,6 +24,7 @@ class SequelizeDBConnector {
             }
             this.sequelize = new Sequelize(config.name, config.username, config.password, config.options);
             this.loadModels();
+            console.log("Models loaded: ", this.models.size());
             return new Promise((resolve, reject) => {
                 this.sequelize.sync().then(() => {
                     resolve(this);
