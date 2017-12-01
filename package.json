@@ -1,6 +1,6 @@
 {
   "name": "protontype-sequelize",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Sequelize database for Protontype",
   "main": "dist/lib/index.js",
   "typings": "dist/lib/index.d.ts",
@@ -40,7 +40,7 @@
     "typescript": "^2.6.1"
   },
   "dependencies": {
-    "protontype": "^2.0.0-rc.2",
+    "protontype": "^2.0.0-rc.3",
     "sequelize": "^4.23.2",
     "typescript-collections": "^1.2.5"
   }
