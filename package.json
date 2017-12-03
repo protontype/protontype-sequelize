@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc -w",
     "start": "npm run build",
-    "test": "build && mocha -t 30000 dist/test/**/*.js"
+    "test": "tsc && mocha -t 30000 dist/test/**/*.js"
   },
   "repository": {
     "type": "git",
