@@ -1,6 +1,6 @@
 {
   "name": "protontype-sequelize",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Sequelize database for Protontype",
   "main": "dist/lib/index.js",
   "typings": "dist/lib/index.d.ts",
