@@ -40,8 +40,8 @@
     "typescript": "^2.6.1"
   },
   "dependencies": {
-    "protontype": "^2.0.0",
-    "sequelize": "^4.23.2",
+    "protontype": "^2.0.1",
+    "sequelize": "^4.28.6",
     "typescript-collections": "^1.2.5"
   }
 }
