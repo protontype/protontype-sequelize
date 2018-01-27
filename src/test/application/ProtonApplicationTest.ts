@@ -31,16 +31,16 @@ class ProtonApplicationTest {
     basicTest(done: Function) {
         this.config = JsonLoader.loadFile<GlobalConfig>("./src/test/utils/config.json");
         this.app = new ProtonApplication(this.config)
-            .withDBConnector(new SequelizeDBConnector())
-            .addMiddleware(new GlobalMiddlewareMock())
-            .addMiddleware(new JsonContentMiddleware())
-            .addRouter(new RouterMock());
+            .withDBConnectorAs(SequelizeDBConnector)
+            .addMiddlewareAs(GlobalMiddlewareMock)
+            .addMiddlewareAs(JsonContentMiddleware)
+            .addRouterAs(RouterMock);
         this.testApplication(done);
     }
 
     private async testApplication(done: Function) {
         try {
-            await this.app.bootstrap()
+            await this.app.start()
             assert.equal(this.app.getRouters().length, 1);
             assert.equal(this.app.getRoutesList().length, 15);
 
