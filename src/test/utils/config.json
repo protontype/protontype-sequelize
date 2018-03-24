@@ -1,5 +1,10 @@
 {
-  "port": "3000",
+  "servers": [
+    {
+      "port": "3000",
+      "https": false
+    }
+  ],
   "defaultRoutes": true,
   "database": {
     "name": "proton-example",
@@ -16,8 +21,18 @@
   },
   "cors": {
     "origin": "*",
-    "methods": ["GET", "POST", "OPTIONS", "PUT", "PATCH", "DELETE"],
-    "allowedHeaders": ["Content-Type", "Authorization"]
+    "methods": [
+      "GET",
+      "POST",
+      "OPTIONS",
+      "PUT",
+      "PATCH",
+      "DELETE"
+    ],
+    "allowedHeaders": [
+      "Content-Type",
+      "Authorization"
+    ]
   },
   "jwtSecret": "secret",
   "jwtSession": {

@@ -8,10 +8,10 @@ import {
 } from './../utils/MiddlewareMock';
 import { RouterMock } from './../utils/RouterMock';
 import { assert } from 'chai';
-import * as express from 'express';
+import express from 'express';
 import { JsonLoader } from 'jsontyped';
 import { suite, test, timeout } from 'mocha-typescript';
-import * as request from 'supertest';
+import request from 'supertest';
 import { SequelizeDB, SequelizeDBConnector } from '../../lib/database/SequelizeDBConnector';
 
 @suite('ProtonApplicationTest')

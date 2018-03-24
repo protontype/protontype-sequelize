@@ -1,5 +1,5 @@
 import { DBConnector, ProtonDB } from 'protontype'
-import * as Sequelize from 'sequelize';
+import Sequelize from 'sequelize';
 import { Dictionary } from 'typescript-collections';
 import { SequelizeBaseModel } from './SequelizeBaseModel';
 import { SequelizeModelConfig } from './SequelizeModelConfig';
