@@ -1,5 +1,5 @@
 import { DBConnector } from 'protontype';
-import * as Sequelize from 'sequelize';
+import Sequelize from 'sequelize';
 import { Dictionary } from 'typescript-collections';
 import { SequelizeBaseModel } from './SequelizeBaseModel';
 export declare class SequelizeDBConnector implements DBConnector<DatabaseConfig, SequelizeDBConnector> {
