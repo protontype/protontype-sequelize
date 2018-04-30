@@ -32,7 +32,7 @@
     "mocha": "^3.1.2",
     "mocha-typescript": "^1.1.12",
     "nyc": "^10.1.2",
-    "sqlite3": "^3.1.13",
+    "sqlite3": "^4.0.0",
     "supertest": "^3.0.0",
     "touch-cli": "0.0.1",
     "typescript": "^2.7.2"
